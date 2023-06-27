@@ -112,69 +112,21 @@ print("All tasks completed")
  
  */
 
-import TabularData
-let csvURL = Bundle.module.url(forResource: "data", withExtension: "csv", subdirectory: "Resources")!
-let destcsvURL = URL(filePath: "/Users/meqt/Downloads/data.csv")
-let destJSONURL = URL(filePath: "/Users/meqt/Downloads/data.json")
+//import TabularData
 
-//let dataFrame = try DataFrame(contentsOfCSVFile: url, options: options)
-let dataFrame = try DataFrame(contentsOfCSVFile: csvURL)
-print(dataFrame)
-//try dataFrame.writeCSV(to: destcsvURL)
-//try dataFrame.writeJSON(to: destJSONURL)
-print("CSV", try String(contentsOf: destcsvURL), separator: "\n")
-print("JSON", try String(contentsOf: destJSONURL), separator: "\n")
-
-print(dataFrame[row: 3])
-print(dataFrame[column: 2])
-
-
-/*:
- immutability
- */
-enum Ripeness {
-    case hard
-    case perfect
-    case mushy(daysPast: Int)
-}
-
-struct Pineapple {
-    var weight: Double
-    var ripeness: Ripeness
-    
-    mutating func ripen() async {
-        
-    }
-    mutating func slice() -> Int {
-       0
-    }
-}
-
-/*
- reference type
- */
-struct HungerLevel: Sendable {}
-final class Chicken: Sendable {
-    let name: String
-    var currentHunger: HungerLevel
-    init(name: String, currentHunger: HungerLevel) {
-        self.name = name
-        self.currentHunger = currentHunger
-    }
-    
-    struct Egg: Sendable {}
-
-    func feed() {
-
-    }
-
-    func play() {
-
-    }
-
-    func produce() -> Egg {
-
-    }
-}
+//let csvURL = Bundle.module.url(forResource: "data", withExtension: "csv", subdirectory: "Resources")!
+//let destcsvURL = URL(filePath: "/Users/meqt/Downloads/data.csv")
+//let destJSONURL = URL(filePath: "/Users/meqt/Downloads/data.json")
+//
+////let dataFrame = try DataFrame(contentsOfCSVFile: url, options: options)
+//let dataFrame = try DataFrame(contentsOfCSVFile: csvURL)
+//print(dataFrame)
+////try dataFrame.writeCSV(to: destcsvURL)
+////try dataFrame.writeJSON(to: destJSONURL)
+//print("CSV", try String(contentsOf: destcsvURL), separator: "\n")
+//print("JSON", try String(contentsOf: destJSONURL), separator: "\n")
+//
+//print(dataFrame[row: 3])
+//print(dataFrame[column: 2])
 
 

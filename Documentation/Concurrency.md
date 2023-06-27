@@ -78,4 +78,10 @@ Sendable protocol propagate.
 class can conform to `Sendable` under limited conditions.
 `@unchecked Sendable`
 
+# Meet Swift Async Algorithms
+
+[video](https://developer.apple.com/wwdc22/110355)
+
+
+## Multi-input algorithms
 
