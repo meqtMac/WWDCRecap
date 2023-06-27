@@ -37,7 +37,7 @@ This is a sample Document eperiment for DocC Documentation and Xcode 15 Document
 #### @Row/@Column
 
 @Row {
-    @Column(size: 3) {
+    @Column {
         ``` swift
         let x = 1024
         ```
@@ -88,3 +88,6 @@ Missed, as I have no apporiate source for this part.
     }
 }
 ```
+
+### Swift-DocC quick navigation
+Don't know if it's only for web.
