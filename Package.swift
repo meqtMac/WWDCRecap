@@ -29,6 +29,11 @@ let package = Package(
             name: "DocCDemo"
         ),
         
+        // Target for Swift Regex
+        .executableTarget(
+            name: "RegexDemo"
+        ),
+        
         
         .executableTarget(
             name: "Exec",
