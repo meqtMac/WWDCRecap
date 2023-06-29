@@ -120,7 +120,7 @@ split ["name:  John Appleseed", "user_id:  100"]
 ```
 
 ### Regex support in Foundation
-Inorder to use Foundation's default parser, you need to include ``Foundation``
+Inorder to use Foundation's default parser, you need to include `Foundation`
 ```swift
 import Foundation
 import RegexBuilder
@@ -177,7 +177,7 @@ for line in testSuiteTestInputs {
 ```
 
 ### Reuse an existing parser
-``strtod`` C function
+`strtod` C function
 ```swift
 //MARK: reuse an existing parser
 import Darwin

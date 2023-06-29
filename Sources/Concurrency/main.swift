@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by 蒋艺 on 2023/6/23.
 //
@@ -31,11 +31,11 @@ try stdout.write(contentsOf: data)
 let counter = Counter()
 
 let task1 = Task {
-    print(await counter.increment(by: 10), "by Task1")
+    print(await counter.increment(by: 10000), await counter.value, "by Task1")
 }
 
 let task2 = Task {
-    print(await counter.increment(by: 10), "by Task2")
+    print(await counter.increment(by: 10000), await counter.value, "by Task2")
 }
 
 // Wait for both tasks to finish

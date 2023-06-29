@@ -4,13 +4,17 @@
 import PackageDescription
 
 let package = Package(
-    name: "Concurrency",
+    name: "WWDCRecap",
     platforms: [
         .macOS(.v13),
         .iOS(.v16)
     ],
-   dependencies: [
-        .package(url: "https://github.com/apple/swift-algorithms.git", .upToNextMajor(from: "1.0.0")),
+    products: [
+        .library(name: "DocCDemo", targets: ["DocCDemo"]),
+        .library(name: "SwiftPackagePlugin", targets: ["SwiftPackagePlugin"]),
+        .library(name: "SwiftGeneric", targets: ["SwiftGeneric"])
+    ],
+    dependencies: [
         .package(url: "https://github.com/apple/swift-collections.git", .upToNextMajor(from: "1.0.0")),
         .package(url: "https://github.com/apple/swift-async-algorithms.git", .upToNextMajor(from: "0.1.0")),
     ],
@@ -20,9 +24,12 @@ let package = Package(
             name: "Concurrency",
             dependencies: [
                 .product(name: "AsyncAlgorithms", package: "swift-async-algorithms"),
+                .product(name: "Collections", package: "swift-collections")
+            ],
+            swiftSettings: [
+                .unsafeFlags(["-strict-concurrency=complete"])
             ]
         ),
-        
         
         // Target for rich documentation with Swift-DocC
         .target(
@@ -39,16 +46,10 @@ let package = Package(
             name: "SwiftGeneric"
         ),
         
-        
-        .executableTarget(
-            name: "Exec",
-            dependencies: [
-                .product(name: "Algorithms", package: "swift-algorithms"),
-                .product(name: "Collections", package: "swift-collections")
-            ],
-            resources: [
-                .copy("Resources/")
-            ]
-        )
-   ]
+        // Target for Swift Package Plugin
+        .target(
+            name: "SwiftPackagePlugin"
+        ),
+    ]
 )
+
