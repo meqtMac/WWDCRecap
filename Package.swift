@@ -34,6 +34,11 @@ let package = Package(
             name: "RegexDemo"
         ),
         
+        // Target for Swift's Generic
+        .target(
+            name: "SwiftGeneric"
+        ),
+        
         
         .executableTarget(
             name: "Exec",
