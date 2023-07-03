@@ -4,6 +4,10 @@
     @CallToAction(
     purpose: link,
     url: "https://developer.apple.com/wwdc22/110352")
+    @PageImage(
+              purpose: card,
+               source: "GenericCover",
+               alt: "Documentation Preview")
 }
 
 
@@ -92,6 +96,9 @@
        ```
    }
 }
+
+
+
 
 
 

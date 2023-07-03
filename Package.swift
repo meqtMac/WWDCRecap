@@ -12,7 +12,7 @@ let package = Package(
     products: [
         .library(name: "DocCDemo", targets: ["DocCDemo"]),
         .library(name: "SwiftPackagePlugin", targets: ["SwiftPackagePlugin"]),
-        .library(name: "SwiftGeneric", targets: ["SwiftGeneric"])
+        .library(name: "SwiftTypes", targets: ["SwiftTypes"])
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-collections.git", .upToNextMajor(from: "1.0.0")),
@@ -43,7 +43,7 @@ let package = Package(
         
         // Target for Swift's Generic
         .target(
-            name: "SwiftGeneric"
+            name: "SwiftTypes"
         ),
         
         // Target for Swift Package Plugin
