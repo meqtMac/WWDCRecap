@@ -19,7 +19,6 @@ let package = Package(
         .package(url: "https://github.com/apple/swift-async-algorithms.git", .upToNextMajor(from: "0.1.0")),
     ],
     targets: [
-        // Target for Concurrency Topics
         .executableTarget(
             name: "Concurrency",
             dependencies: [
@@ -30,23 +29,19 @@ let package = Package(
                 .unsafeFlags(["-strict-concurrency=complete"])
             ]
         ),
-        
-        // Target for rich documentation with Swift-DocC
         .target(
             name: "DocCDemo"
         ),
-        
-        // Target for Swift Regex
         .executableTarget(
             name: "RegexDemo"
         ),
-        
-        // Target for Swift's Generic
         .target(
             name: "SwiftTypes"
         ),
-        
-        // Target for Swift Package Plugin
+        .executableTarget(
+            name: "customStringInteroperation"
+        ),
+        .target(name: "MEQTOCInteroperabilty"),
         .target(
             name: "SwiftPackagePlugin"
         ),

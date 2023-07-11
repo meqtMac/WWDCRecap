@@ -16,7 +16,6 @@ This is a sample Document eperiment for DocC Documentation and Xcode 15 Document
                alt: "A technology icon representing the document preview"
                )
     @PageColor(purple)
-    
 }
 
 ## Overview
