@@ -7,120 +7,195 @@
 
 import RegexBuilder
 
-let input = "name:  John Appleseed,  user_id:  100"
+//let input = "name:  John Appleseed,  user_id:  100"
+//
+//let regex = Regex{
+//    "user_id:"
+//    ZeroOrMore(.whitespace)
+//    Capture{
+//        OneOrMore(.digit)
+//    }
+//}
+//
+//if let match = input.firstMatch(of: regex) {
+//    print("Matched: \(match.0)")
+//    print("User ID: \(match.1)")
+//}
+//
+//let regex2 = Regex{
+//    OneOrMore("a")
+//    OneOrMore(.digit)
+//}
+//
+//print("wholeMatch:", input.wholeMatch(of: regex) as Any)
+//print("prefixMatch",input.prefixMatch(of: regex) as Any)
+//print("starts:", input.starts(with: regex))
+//print("replacing:", input.replacing(regex, with: "456"))
+//print("trimming:", input.trimmingPrefix(regex))
+//
+//let regexSplitter = Regex{
+//    ZeroOrMore(.whitespace)
+//    ","
+//    ZeroOrMore(.whitespace)
+//}
+//print("split", input.split(separator:regexSplitter))
+//
+////MARK: TestSuite Example
+//let funcNameRegex = Regex {
+//    CharacterClass("a"..."z", "A"..."Z")
+//    ZeroOrMore{
+//        CharacterClass("a"..."z", "A"..."Z", "0"..."9")
+//    }
+//}
+//
+//enum TestResult: String {
+//    case started
+//    case passed
+//    case failed
+//    case unknown
+//}
+//
+//import Foundation
+//let testRegex = Regex{
+//    "Test Suite '"
+//    Capture(funcNameRegex)
+//    "' "
+//    
+//    TryCapture{
+//        ChoiceOf {
+//            "started"
+//            "passed"
+//            "failed"
+//        }
+//    } transform: {
+//        return TestResult(rawValue: String($0))
+//    }
+//    
+//    " at "
+//    Capture(
+//        .iso8601(timeZone: .current,
+//                 includingFractionalSeconds: true,
+//                 dateTimeSeparator: .space)
+//    )
+//    Optionally(".")
+//}
+//
+//let testSuiteTestInputs = [
+//    "Test Suite 'RegexDSLTests' started at 2022-06-06 09:41:00.001",
+//    "Test Suite 'RegexDSLTests' failed at 2022-06-06 09:41:00.001.",
+//    "Test Suite 'RegexDSLTests' passed at 2022-06-06 09:41:00.001."
+//]
+//
+//for line in testSuiteTestInputs {
+//    if let (_, name, status, date) = line.wholeMatch(of: testRegex)?.output {
+//        print("Matched: ", name, status, date, separator: ", ")
+//    }
+//}
+//
+////MARK: reuse an existing parser
+//import Darwin
+//struct CDoubleParser: CustomConsumingRegexComponent {
+//    typealias RegexOutput = Double
+//    func consuming(
+//        _ input: String,
+//        startingAt index: String.Index,
+//        in bounds: Range<String.Index>) throws -> (upperBound: String.Index, output: Double)? {
+//            input[index...].withCString { startAddress in
+//                var endAddress: UnsafeMutablePointer<CChar>!
+//                let output = strtod(startAddress, &endAddress)
+//                guard endAddress > startAddress else {return nil}
+//                let parsedLength = startAddress.distance(to: endAddress)
+//                let upperBound = input.utf8.index(index, offsetBy: parsedLength )
+//                return (upperBound, output)
+//            }
+//        }
+//}
+//
+//let testCaseWithDurationInput = """
+//    Test Case '-[RegexDSLTests testCharacterClass]' passed (0.001 seconds).
+//    """
+//
+//let testCaseWithDurationRegex = Regex {
+//    "Test Case "; OneOrMore(.any, .reluctant); "("
+//    Capture ( CDoubleParser() )
+//    " seconds)."
+//}
+//
+//if let match = testCaseWithDurationInput.wholeMatch(of: testCaseWithDurationRegex) {
+//    print("Time: \(match.1)")
+//}
+//
 
-let regex = Regex{
-    "user_id:"
-    ZeroOrMore(.whitespace)
-    Capture{
-        OneOrMore(.digit)
+//
+//let regex = Regex {
+//    "s.dependency "
+//    "'"
+//    Capture {
+//        moduleNameRegex
+//    }
+//    "'"
+//}
+//
+//let input = """
+//  s.dependency 'Lottie'
+//  s.dependency 'HWUmShare'
+//  s.dependency 'IGListKit'
+//  s.dependency 'HWProgressHUD'
+//  s.dependency 'YYModel'
+//  s.dependency 'YYCache'
+//  s.dependency 'Masonry'
+//  s.dependency 'SDWebImage'
+//  s.dependency 'KVOController'
+//  s.dependency 'JXCategoryView'
+//  s.dependency 'IQKeyboardManager'
+//"""
+
+//for line in input.split(separator: "\n") {
+//    if let (_, moduleName) = line.matches(of: regex)
+//        line.wholeMatch(of: regex)?.output {
+//        print(moduleName)
+//    }
+//}
+//for line in input.matches(of: regex) {
+//    print("\t- " + line.output.1)
+//}
+let nameRegex = Regex {
+    OneOrMore{
+        CharacterClass("a"..."z", "A"..."Z")
     }
 }
 
-if let match = input.firstMatch(of: regex) {
-    print("Matched: \(match.0)")
-    print("User ID: \(match.1)")
-}
-
-let regex2 = Regex{
-    OneOrMore("a")
-    OneOrMore(.digit)
-}
-
-print("wholeMatch:", input.wholeMatch(of: regex) as Any)
-print("prefixMatch",input.prefixMatch(of: regex) as Any)
-print("starts:", input.starts(with: regex))
-print("replacing:", input.replacing(regex, with: "456"))
-print("trimming:", input.trimmingPrefix(regex))
-
-let regexSplitter = Regex{
-    ZeroOrMore(.whitespace)
-    ","
-    ZeroOrMore(.whitespace)
-}
-print("split", input.split(separator:regexSplitter))
-
-//MARK: TestSuite Example
-let funcNameRegex = Regex {
-    CharacterClass("a"..."z", "A"..."Z")
-    ZeroOrMore{
-        CharacterClass("a"..."z", "A"..."Z", "0"..."9")
-    }
-}
-
-enum TestResult: String {
-    case started
-    case passed
-    case failed
-    case unknown
-}
-
-import Foundation
-let testRegex = Regex{
-    "Test Suite '"
-    Capture(funcNameRegex)
-    "' "
-    
-    TryCapture{
-        ChoiceOf {
-            "started"
-            "passed"
-            "failed"
-        }
-    } transform: {
-        return TestResult(rawValue: String($0))
-    }
-    
-    " at "
-    Capture(
-        .iso8601(timeZone: .current,
-                 includingFractionalSeconds: true,
-                 dateTimeSeparator: .space)
-    )
-    Optionally(".")
-}
-
-let testSuiteTestInputs = [
-    "Test Suite 'RegexDSLTests' started at 2022-06-06 09:41:00.001",
-    "Test Suite 'RegexDSLTests' failed at 2022-06-06 09:41:00.001.",
-    "Test Suite 'RegexDSLTests' passed at 2022-06-06 09:41:00.001."
-]
-
-for line in testSuiteTestInputs {
-    if let (_, name, status, date) = line.wholeMatch(of: testRegex)?.output {
-        print("Matched: ", name, status, date, separator: ", ")
-    }
-}
-
-//MARK: reuse an existing parser
-import Darwin
-struct CDoubleParser: CustomConsumingRegexComponent {
-    typealias RegexOutput = Double
-    func consuming(
-        _ input: String,
-        startingAt index: String.Index,
-        in bounds: Range<String.Index>) throws -> (upperBound: String.Index, output: Double)? {
-            input[index...].withCString { startAddress in
-                var endAddress: UnsafeMutablePointer<CChar>!
-                let output = strtod(startAddress, &endAddress)
-                guard endAddress > startAddress else {return nil}
-                let parsedLength = startAddress.distance(to: endAddress)
-                let upperBound = input.utf8.index(index, offsetBy: parsedLength )
-                return (upperBound, output)
-            }
-        }
-}
-
-let testCaseWithDurationInput = """
-    Test Case '-[RegexDSLTests testCharacterClass]' passed (0.001 seconds).
+let propertyRegex = Regex {
     """
-
-let testCaseWithDurationRegex = Regex {
-    "Test Case "; OneOrMore(.any, .reluctant); "("
-    Capture ( CDoubleParser() )
-    " seconds)."
+    @property (weak, nonatomic) IBOutlet
+    """
+    ZeroOrMore(.whitespace)
+    Capture(nameRegex)
+    ZeroOrMore(.whitespace)
+    "*"
+    Capture(nameRegex)
+    ";"
 }
 
-if let match = testCaseWithDurationInput.wholeMatch(of: testCaseWithDurationRegex) {
-    print("Time: \(match.1)")
+let declarations = """
+""".split(separator: "\n")
+
+for declaration in declarations {
+    if let (_, view, name) = declaration.wholeMatch(of: propertyRegex)?.output  {
+//        print("""
+//        @property (nonatomic, strong) \(view) *\(name);
+//        """)
+        print("""
+        - (\(view) *)\(name){
+            if (_\(name)) { return _\(name); }
+            _\(name) = [\(view) new];
+            return  _\(name);
+        }
+        
+        """)
+    }else{
+        print("\(declaration): failed to match")
+    }
 }
+
+

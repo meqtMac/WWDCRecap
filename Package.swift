@@ -35,6 +35,9 @@ let package = Package(
         .executableTarget(
             name: "RegexDemo"
         ),
+        .executableTarget(
+            name: "DSLDemo"
+        ),
         .target(
             name: "SwiftTypes"
         ),
