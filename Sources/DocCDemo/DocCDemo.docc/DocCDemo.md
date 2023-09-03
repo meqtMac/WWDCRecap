@@ -3,23 +3,18 @@
 This is a sample Document eperiment for DocC Documentation and Xcode 15 Documentation Preview.
 
 @Metadata {
-    @CallToAction(
-                  purpose: link,
+    @CallToAction(purpose: link,
                   url: "https://developer.apple.com/wwdc23/10244")
-    @PageImage(
-              purpose: card,
+    @PageImage(purpose: card,
                source: "DocumentPreview",
                alt: "Documentation Preview")
-    @PageImage(
-               purpose: icon,
+    @PageImage(purpose: icon,
                source: "DocumentPreview",
-               alt: "A technology icon representing the document preview"
-               )
+               alt: "A technology icon representing the document preview")
     @PageColor(purple)
 }
 
 ## Overview
-
 
 ### Features
 @Links(visualStyle: detailedGrid) {

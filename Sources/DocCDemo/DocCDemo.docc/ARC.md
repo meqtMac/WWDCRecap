@@ -3,12 +3,12 @@
 ## Implementation
 
 ### Value type
-- ``struct``
+- `struct`
 deallocated when it goes out of the scope.
 
 ### Reference type.
-- ``class``
-- ``actor``
+- `class`
+- `actor`
 
 Swift compiler insert retain and release.
 
@@ -18,10 +18,10 @@ Swift compiler insert retain and release.
 
 #### Reference Cycle -> Memory Leak?
 Break reference cycles.
-- ``weak`` -> nil
-- ``unown`` -> traps
+- `weak` -> nil
+- `unown` -> traps
 
-``weak`` and ``unown`` aren't enloved in reference count.
+`weak` and `unown` aren't enloved in reference count.
  ```swift
  
  class Traveler {
@@ -45,7 +45,7 @@ func test() {
 }
  ```
  
- - ``withExtendedLifetime``
+ - `withExtendedLifetime`
  ```swift
  func test() {
     let traveler = Traveler(name: "Lily")

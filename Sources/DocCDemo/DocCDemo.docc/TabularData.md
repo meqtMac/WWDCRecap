@@ -1,11 +1,16 @@
 # TabularData
 
-[Explore and manipulate data in Swift with TabularData](https://developer.apple.com/videos/play/tech-talks/10100)
+@Metadata {
+@CallToAction(
+              purpose: link,
+              url: "https://developer.apple.com/videos/play/tech-talks/10100")
+}
+
 
 ## Build
 
 ## Loading
-### ``CSV``
+### `CSV`
 - CSV optionsaG
 ```swift
 import TabularData
@@ -25,7 +30,7 @@ let dataFrame = try DataFrame(
     types: ["id": .integer, "name", .string]
 )
 
-### ``JSON``
+### `JSON`
 
 ## Writing Data
      

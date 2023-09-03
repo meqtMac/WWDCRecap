@@ -1,16 +1,17 @@
 # Visualize and optimize Swift concurrency
 
+## Swift Concurrency Recap
+### Async/await
+
 ![Visual and optimize Swift concurrency](https://developer.apple.com/wwdc22/110350)
 ![Meet async/await in Swift](https://developer.apple.com/wwdc21/10132)
+### Tasks
+### Structured concurrency
+### Actors
 ![Explore structured concurrency in Swift](https://developer.apple.com/wwdc21/10134)
 ![Protect mutable state with Swift actors](https://developer.apple.com/wwdc21/10133)
 ![Swift concurrency: Behind the scenes](https://developer.apple.com/wwdc21/10254)
 ![Use async/await with URLSession](https://developer.apple.com/wwdc21/10095)
-## Swift Concurrency Recap
-### Async/await
-### Tasks
-### Structured concurrency
-### Actors
 
 ## Concurrency Optimization
 ### Main actor blocking
@@ -18,8 +19,8 @@
 serialized tasks. -> 🐢
 
 Thread Pool -> concurrently
-in actor ``noisolated``
-for task ``detached``
+in actor `noisolated`
+for task `detached`
 ```swift
 noisolated async
 and use await for actor access inside
@@ -42,7 +43,7 @@ External callback-based API
 should be called only once.
 withCheckedContinuation
 
-# Eliminate data races using Swift Concurrency
+## Eliminate data races using Swift Concurrency
 
 [Eliminate data races using Swift Concurrency](https://developer.apple.com/wwdc22/110351)
 
@@ -78,7 +79,7 @@ Sendable protocol propagate.
 class can conform to `Sendable` under limited conditions.
 `@unchecked Sendable`
 
-# Meet Swift Async Algorithms
+## Meet Swift Async Algorithms
 
 [video](https://developer.apple.com/wwdc22/110355)
 

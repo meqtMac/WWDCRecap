@@ -1,8 +1,12 @@
 # DSL in swift
 
-[Write a DSL in Swift using result builders](https://developer.apple.com/wwdc21/10253)
-## Overview
+@Metadata {
+    @CallToAction(
+                  purpose: link,
+                  url: "https://developer.apple.com/wwdc21/10253")
+}
 
+## Overview
 embedded DSL features
 
 DSL for non professional programmers.
@@ -10,10 +14,10 @@ DSL for non professional programmers.
 language have a learning curve.
 
 ### SwiftUI DSL
-- ``Property wrappers``
-- ``Trailing closure arguments``
-- ``Result builders``
-- ``Modifier-style methods``
+- `Property wrappers`
+- `Trailing closure arguments`
+- `Result builders`
+- `Modifier-style methods`
 
 #### Result Builders
 Swift 5.4

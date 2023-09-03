@@ -25,8 +25,8 @@ let userInput = readLine() ?? ""
 let myString = "The user typed '\(validating: userInput)'." as MyString
 ```
 
-### See Also 
+## See Also 
 
-- ``String.StringInterpolationProtocol``
-- ``DefaultStringInterpolation``
+- `String.StringInterpolationProtocol`
+- `DefaultStringInterpolation`
 
